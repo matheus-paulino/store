@@ -4,13 +4,20 @@ const routes = express.Router();
 /*
 *** Controllers
 */
-
 const userController = require('./controllers/userController');
+const productController = require('./controllers/productController');
+
 
 routes
-    .get('/users', userController.index)
-    .post('/users', userController.create)
-    .put('/users/:id', userController.update)
-    .delete('/users/:id', userController.delete)
+    // Users
+    .get('/user', userController.index)
+    .post('/user', userController.create)
+    .put('/user/:id', userController.update)
+    .delete('/user/:id', userController.delete)
+    // Products
+    .get('/product', productController.index)
+    .post('/product', productController.create)
+    .put('/product/:id', productController.update)
+    .delete('/product/:id', productController.delete)
 
 module.exports = routes;
