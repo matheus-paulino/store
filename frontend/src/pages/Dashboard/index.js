@@ -1,40 +1,48 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
-import { Container, ContainerProduct, Form } from './styles';
 
-import Navbar from '../../components/Navbar';
+import { Container } from './styles';
+import Navbar from '../../components/Navbar'
+import { Link } from 'react-router-dom';
+
+import api from '../../services/api';
 
 function Dashboard() {
+
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    api.get('product').then(response => {
+      setProducts(response.data)
+    })
+  }, [])
+
   return (
-      <>
-        <Navbar />
-        <Container>
-          <ContainerProduct>
-            <h2>Cadastrar novo produto</h2>
+    <>
+      <Navbar />
+      <Container>
+          <ul>
+            {products.map(product => (
+              <li key={product.id}>
+                <strong>Nome do produto:</strong>
+                <p>{product.product_name}</p>
 
-            <Form>
-              <div>
-                <label>Nome do produto</label>
-                <input type="text" />
-              </div>
+                <strong>ID do produto:</strong>
+                <p>{product.id}</p>
 
-              <div>
-                <label>Descrição do produto</label>
-                <textarea type="text" />
-              </div>
+                <strong>Descrição:</strong>
+                <p>{product.product_description}</p>
 
-              <div>
-                <label>Preço do produto</label>
-                <input type="text" />
-              </div>
-
-              <div>
-                <input type="submit" value="Registar produto" />
-              </div>
-            </Form>
-          </ContainerProduct>
-        </Container>
-      </>
-)};
+                <strong>Valor:</strong>
+                <p>{Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(product.product_price)}</p>
+                <Link to="#">Ver detalhes</Link>
+            </li> 
+            ))}   
+          </ul>
+      </Container>
+    </>
+      
+  );
+}
 
 export default Dashboard;

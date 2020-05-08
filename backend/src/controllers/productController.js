@@ -14,6 +14,7 @@ module.exports = {
     async create(req, res, next) {
         try {
             const { product_name, product_description, product_price } = req.body;
+            req.headers;
 
             await knex('product').insert({
                 product_name,

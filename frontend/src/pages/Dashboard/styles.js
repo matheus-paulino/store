@@ -3,74 +3,49 @@ import styled from 'styled-components';
 export const Container = styled.div`
     width: 100%;
     margin-left: 210px;
-`;
+    margin-top: 10px;
+    margin-right: 10px;
 
-export const ContainerProduct = styled.div`
-    max-width: 500px;
-    width: 100%;
-    background: rgb(255, 255, 255);
-    margin: 20px auto;
-    padding: 30px;
-    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.125);
-
-    h2 {
-        margin-bottom: 25px;
-        color: #002147;
-        text-transform: uppercase;
-        text-align: center;
-    }
-`;
-
-export const Form = styled.div`
-    width: 100%;
-
-    div {
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
+    ul {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 24px;
+        list-style: none;
     }
 
-    div label {
-        width: 200px;
-        color: #757575;
-        margin-right: 10px;
+    ul li {
+        background: #FFF;
+        padding: 24px;
+        border-radius: 8px;
+        position: relative;
     }
 
-    div input, textarea {
-        width: 100%;
-        outline: none;
-        border: 1px solid #d5dbd9;
-        font-size: 15px;
-        padding: 8px 10px;
-        transition: all 0.3s ease;
+    ul li strong {
+        display: block;
+        margin-bottom: 16px;
+        color: #41414d;
     }
 
-    div textarea {
-        resize: vertical;
-        height: 125px;
+    ul li strong:not(:first-child) {
+        margin-top: 32px;
     }
 
-    div input:focus, textarea:focus {
-        border: 1px solid #007BFF;
+    ul li p {
+        color: #737380;
+        line-height: 21px;
+        font-size: 16px;
     }
-
-    div input[type=submit] {
-        padding: 8px 10px;
-        font-size: 15px;
-        border: 0;
-        background: #007BFF;
+    
+    ul li a {
+        background: #7159c1;
+        float: right;
+        padding: 8px;
+        border-radius: 8px;
         color: #fff;
-        cursor: pointer;
-        border-radius: 3px;
-        outline: none;
-        transition: all 0.3s ease;
+        transition: 0.2s ease-in-out all;
     }
 
-    div input[type=submit]:hover {
-        opacity: 0.9;
-    }
-
-    div:last-child {
-        margin-bottom: 0;
+    ul li a:hover {
+        opacity: 0.8;
     }
 `;

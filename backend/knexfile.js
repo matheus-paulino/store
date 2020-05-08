@@ -1,4 +1,5 @@
 // Update with your config settings.
+require('dotenv').config({path: '.env'});
 
 module.exports = {
 
@@ -6,8 +7,8 @@ module.exports = {
     client: 'pg',
     connection: {
       database: 'store',
-      user: 'postgres',
-      password: '0000'
+      user: process.env.DB_USER,
+      password: process.env.DB_PASSWORD
     },
     migrations: {
       tableName: 'knex_migrations',

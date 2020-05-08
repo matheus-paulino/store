@@ -22,4 +22,8 @@ export default createGlobalStyle`
         font-size: 14px;
         font-family: 'Roboto', sans-serif;
     }
+
+    a {
+        text-decoration: none;
+    }
 `;

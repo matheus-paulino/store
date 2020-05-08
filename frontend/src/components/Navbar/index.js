@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 import { Container } from './styles';
 
@@ -9,10 +10,10 @@ function Navbar() {
 
         <ul>
             <li>
-                <a href="#">Início</a>
+                <Link to="/dashboard">Início</Link>
             </li>
             <li>
-                <a href="#">Produtos</a>
+                <Link to="/product/new">Registrar novo produto</Link>
             </li>
         </ul>
     </Container>

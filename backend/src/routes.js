@@ -6,6 +6,7 @@ const routes = express.Router();
 */
 const userController = require('./controllers/userController');
 const productController = require('./controllers/productController');
+const sessionController = require('./controllers/sessionController');
 
 
 routes
@@ -14,6 +15,7 @@ routes
     .post('/user', userController.create)
     .put('/user/:id', userController.update)
     .delete('/user/:id', userController.delete)
+    .post('/session', sessionController.create)
     // Products
     .get('/product', productController.index)
     .post('/product', productController.create)
